@@ -26,5 +26,7 @@ def get_trending():
     return jsonify([x['topic'] for x in sorted_topics[:5]])
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 10000))
+    import os
+    port = int(os.environ.get('PORT', 10000))  # <- uses Render's assigned port
+    print(f"Running on port {port}...")
     app.run(host='0.0.0.0', port=port)
